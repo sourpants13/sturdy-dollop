@@ -1,1 +1,153 @@
-<h1/>ERROR 404 System Breached<h1/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GAGMARKET</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at center, #0a0a0a, #000);
+  overflow-x: hidden;
+  color: white;
+}
+
+/* Neon Title */
+h1 {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 20px;
+  letter-spacing: 5px;
+  color: #0ff;
+  text-shadow:
+    0 0 10px #0ff,
+    0 0 20px #0ff,
+    0 0 40px #00f,
+    0 0 80px #00f;
+  animation: flicker 2s infinite alternate;
+}
+
+@keyframes flicker {
+  0% {opacity: 1;}
+  100% {opacity: 0.85;}
+}
+
+/* Background glow effect */
+.bg-light {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0,255,255,0.3), transparent);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+/* Products */
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.card {
+  background: #111;
+  padding: 20px;
+  border-radius: 20px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,255,255,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 40px rgba(0,255,255,0.6);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.price {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.old {
+  text-decoration: line-through;
+  color: gray;
+  margin-right: 10px;
+}
+
+.new {
+  color: #0ff;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #0ff;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: white;
+}
+</style>
+</head>
+
+<body>
+
+<h1>GAGMARKET</h1>
+
+<div class="bg-light" id="light"></div>
+
+<div class="container">
+
+  <!-- Dragonfly Raccoon -->
+  <div class="card">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..." id="raccoon">
+    <h2>Dragonfly Raccoon</h2>
+    <div class="price">
+      <span class="old">$29.99</span>
+      <span class="new">$12.99</span>
+    </div>
+    <button onclick="buy('Dragonfly Raccoon')">Buy</button>
+  </div>
+
+  <!-- Queen Bee -->
+  <div class="card">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..." id="bee">
+    <h2>Queen Bee</h2>
+    <div class="price">
+      <span class="old">$24.99</span>
+      <span class="new">$9.99</span>
+    </div>
+    <button onclick="buy('Queen Bee')">Buy</button>
+  </div>
+
+</div>
+
+<script>
+// Cursor glow
+const light = document.getElementById("light");
+
+document.addEventListener("mousemove", e => {
+  light.style.left = e.clientX + "px";
+  light.style.top = e.clientY + "px";
+});
+
+// Buy popup
+function buy(product) {
+  alert(product + " purchased successfully!");
+}
+</script>
+
+</body>
+</html>
